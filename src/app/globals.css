@@ -1,0 +1,394 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  scroll-snap-type: y mandatory;
+}
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+.app_videos {
+  width: 27%;
+  position: relative;
+  height: 100vh;
+  background-color: black;
+  overflow: scroll;
+  scroll-snap-type: y mandatory;
+}
+.app_videos::-webkit-scrollbar {
+  display: none;
+}
+
+.videocard {
+  width: 98%;
+  height: 96%;
+  scroll-snap-align: start;
+  position: relative;
+  padding: 5px;
+}
+.videocard-skeleton{
+  width: 98%;
+  height: 96%;
+  scroll-snap-align: start;
+  position: relative;
+  padding: 5px;
+}
+.mute_btn {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  z-index: 50;
+}
+.mute_btn button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  background: rgba(65, 66, 65, 0.486);
+}
+
+.videoplayer {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: inset 13px 12px 50px 10px rgba(240, 231, 239, 0.144);
+}
+.pause_overlay {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: transparent;
+  border-radius: 5px;
+}
+.progress-bar-container {
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  padding: 0 5px;
+  border-radius: 5px;
+}
+
+.progress-bar {
+  height: 100%;
+  background-color: white;
+  width: 0;
+  border-radius: 5px;
+}
+.pause_overlay button {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.582);
+  border-radius: 50%;
+  transition: all 0.9s ease-in;
+  animation: popup 0.5s forwards;
+}
+
+@keyframes popup {
+  from {
+    scale: 1.4;
+    opacity: 0.3;
+  }
+  to {
+    scale: 1;
+    opacity: 1;
+  }
+}
+
+.reelside {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 0;
+  bottom: 0;
+  width: 18%;
+  align-items: center;
+  gap: 15px;
+  color: white;
+  z-index: 50;
+}
+.reelside button {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2px;
+  font-size: 0.8rem;
+}
+.reelside button:nth-child(1):active svg {
+  color: red;
+}
+.reelside button:nth-child(3) svg {
+  rotate: -22deg;
+  margin: 10px 0;
+}
+.reelside button:nth-child(5) {
+  rotate: 90deg;
+}
+.reelside button .song_poster {
+  width: 30px;
+  margin-bottom: 10px;
+  height: 30px;
+  border-radius: 3px;
+  background-color: white;
+  -webkit-box-shadow: 10px 10px 93px 7px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 93px 7px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 93px 7px rgba(0, 0, 0, 0.75);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.song_poster img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: inherit;
+}
+
+.reelside button:nth-child(1) svg:active {
+  fill: red;
+  stroke-width: 0;
+}
+
+.reelside button:nth-child(4) svg:active {
+  fill: white;
+  stroke-width: 0;
+}
+.reelside button:hover {
+  color: rgba(8, 9, 10, 0.973);
+}
+
+.ReelDetails {
+  position: absolute;
+  bottom: 6px;
+  left: 20px;
+  width: 75%;
+  z-index: 50;
+  color: white;
+  font-weight: 400;
+}
+
+.profile_Details {
+  display: flex;
+  align-items: center;
+  margin: 6px 0;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.profile_Details img {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+.profile_Details button {
+  border: 1px solid grey;
+  padding: 0 12px;
+  margin: 5px 0;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  background-color: rgba(0, 0, 0, 0.062);
+}
+.profile_Details button:active {
+  background-color: rgb(2, 118, 196);
+}
+.description-container {
+  padding: 0 4px;
+}
+.description-container details {
+  font-size: 14px;
+}
+.description-container summary::marker {
+  content: "";
+}
+.song_Details {
+  width: 100%;
+  margin: 6px 0;
+  gap: 10px;
+  overflow: hidden;
+}
+::-webkit-scrollbar {
+  display: none;
+}
+.scroller {
+  overflow: scroll;
+  width: 200%;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  will-change: transform;
+  gap: 10px;
+  font-size: 0.8rem;
+  animation: loop 5s linear infinite;
+}
+
+@keyframes loop {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-20%);
+  }
+}
+.FriendsLike {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.likedby:nth-child(even) {
+  margin-top: 12px;
+}
+
+.likedby:nth-child(odd) {
+  margin-top: -12px;
+}
+
+.likedby {
+  position: relative;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  margin: 5px;
+  animation: leftright 2s ease-in-out infinite alternate;
+}
+
+@keyframes leftright {
+  0% {
+    transform: translateX(-2px);
+  }
+  100% {
+    transform: translateX(2px);
+  }
+}
+
+.likedby img {
+  border-radius: 50%;
+  height: 100%;
+  width: 100%;
+}
+
+.likedby svg {
+  fill: red;
+  stroke-width: 0;
+  position: absolute;
+  left: 35px;
+  bottom: -18px;
+  transform: translate(-50%, -50%);
+}
+
+.navBar_Menu:hover {
+  background-color: rgba(158, 158, 158, 0.274);
+  transition: 0.1s ease-in-out;
+}
+
+.navBar_Menu:hover > .icons {
+  scale: 1.2;
+}
+
+.loading::-webkit-scrollbar {
+  display: none;
+}
+
+.loadingbar {
+  height: 4px;
+  background: #27c4f5
+    linear-gradient(
+      to right,
+      #27c4f5,
+      #a307ba,
+      #fd8d32,
+      #70c050,
+      #27c4f5,
+      orange
+    );
+  background-size: 500%;
+  animation: 2s linear infinite barprogress, 0.3s fadein;
+  width: 0%;
+  border-radius: 8px;
+}
+@keyframes barprogress {
+  0% {
+    width: 1%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+.reel_overlay {
+  background-color: rgba(66, 66, 66, 0.11);
+  transition: 0.3s ease-in-out;
+}
+.reel_overlay:hover {
+  background-color: transparent;
+}
+
+.popupmenu {
+  width: 100%;
+  height: 100vh;
+  position: fixed;
+  color: white;
+  z-index: 100;
+  left: 0;
+  right: 0;
+  background-color: rgba(255, 255, 255, 0.075);
+  -webkit-backdrop-filter: blur(3px);
+  backdrop-filter: blur(3px);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.popupmenu .btn_pop {
+  width: 350px;
+  height: auto;
+  background: rgb(58, 58, 58);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border-radius: 15px;
+}
+.btn_pop button {
+  width: 100%;
+  font-weight: 500;
+  height: 50px;
+  border-bottom: 1px solid gray;
+}
+.btn_pop button:hover {
+  background: rgba(34, 34, 34, 0.712);
+}
+.btn_pop button:nth-child(1) {
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+.btn_pop button:nth-child(7) {
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+.btn_pop button:last-child {
+  border: none;
+}
