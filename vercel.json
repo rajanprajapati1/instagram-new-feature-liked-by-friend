@@ -1,7 +1,8 @@
 {
+  "version": 2,
   "functions": {
-    "api/auth/*": {
-      "runtime": "nodejs18.x"
+    "api/**/*.js": {
+      "runtime": "nodejs18.x"  // Example: use Node.js 18.x
     }
   }
 }
