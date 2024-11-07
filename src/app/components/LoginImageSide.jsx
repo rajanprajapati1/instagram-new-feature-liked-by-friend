@@ -17,7 +17,7 @@ const LoginImageSide = () => {
   }, []);
   return (
     <div className="first w-[50%] flex justify-end items-center h-screen">
-      <div className="main_img w-[60%] h-full flex items-center justify-center ">
+      <div className="main_img w-[72%] h-full flex items-center justify-center ">
         <img
           src="https://www.instagram.com/static/images/homepage/phones/home-phones.png/1dc085cdb87d.png"
           alt=""
@@ -26,7 +26,7 @@ const LoginImageSide = () => {
         <img
           src={images[currentImageIndex]}
           alt=""
-          className="w-[218px] ml-[85px] mt-6 h-[512px] absolute"
+          className="w-[260px] ml-[100px] mt-5 h-[540px] absolute"
         />
       </div>
     </div>
